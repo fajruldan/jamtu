@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantau Jam</title>
+    <title>Pantau Jam - MA Plus</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="icon.png" />
@@ -186,90 +186,101 @@
             <img src="/icon.png" alt="Icon Aplikasi" style="width: 5rem; height: 5rem; margin: 0 auto 1.5rem; display: block;">
             <h1>Pantau Jam</h1>
             <p style="font-size: 1.2rem; color: #fff;">Smart Attendance System MA Plus Abu Hurairah</p>
-            <p>Sistem presensi digital dengan koordinat GPS dan QR Code terenkripsi</p>
+            <p>Sistem presensi digital cerdas anti-kecurangan dengan integrasi real-time Google Sheets.</p>
         </div>
     </section>
 
     <section id="masalah">
-        <h2 class="reveal">Latar Belakang</h2>
+        <h2 class="reveal">Mengapa Butuh Sistem Digital?</h2>
         <div class="grid">
             <div class="glass-card reveal">
                 <i class="fa-solid fa-file-excel"></i>
-                <h3>Rekap Manual Excel</h3>
-                <p>Mengatasi hambatan rekapitulasi data manual yang memakan waktu dan berisiko kesalahan.</p>
+                <h3>Proses Manual Usang</h3>
+                <p>Presensi yang memakan waktu lama ketika penginputan saat rekapitulasi bulanan.</p>
             </div>
             <div class="glass-card reveal">
                 <i class="fa-solid fa-user-xmark"></i>
                 <h3>Rawan Manipulasi</h3>
-                <p>Mencegah praktik manipulasi seperti penitipan barcode atau kehadiran dari luar area sekolah.</p>
+                <p>Sistem konvensional sangat mudah diakali, seperti menitipkan barcode atau absen dari rumah (titip absen).</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <h3>Ketidakakuratan Waktu</h3>
+                <p>Sulit melacak pasti menit & detik ke berapa seorang guru masuk kelas, berdampak pada evaluasi kedisiplinan yang kurang akurat.</p>
             </div>
         </div>
     </section>
 
     <section id="fitur">
-        <h2 class="reveal">Teknologi</h2>
+        <h2 class="reveal">Fitur Teknologi</h2>
         <div class="grid">
             <div class="glass-card reveal">
-                <i class="fa-solid fa-database"></i>
-                <h3>Offline Mode</h3>
-                <p>Data kehadiran otomatis tersimpan di penyimpanan lokal HP (brankas data).</p>
-            </div>
-            <div class="glass-card reveal">
-                <i class="fa-solid fa-key"></i>
-                <h3>Smart Session</h3>
-                <p>Login cukup satu kali saat instalasi awal untuk penggunaan seterusnya.</p>
-            </div>
-            <div class="glass-card reveal">
                 <i class="fa-solid fa-bolt"></i>
+                <h3>Smart QR Scanner</h3>
+                <p>Pemindai QR super responsif dilengkapi senter (flashlight) otomatis untuk kondisi ruangan dengan pencahayaan minim.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Live Dashboard</h3>
+                <p>Menampilkan jam digital real-time dan "Kartu Status" interaktif yang berisi total kelas yang sudah diajar pada hari tersebut.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-database"></i>
+                <h3>Smart Offline Storage</h3>
+                <p>Data kehadiran otomatis masuk ke brankas HP lokal (SharedPreferences). Guru bisa cek riwayat absen kalender tanpa kuota internet. dan data akan selamanya ada kecuali aplikasi di un-install</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-mobile-button"></i>
                 <h3>Low-End Friendly</h3>
-                <p>Aplikasi sangat ringan dan lancar bahkan pada ponsel Android versi lama.</p>
+                <p>Sistem Pre-Cache Visual dan Smart Timer menghemat penggunaan baterai serta RAM, lancar di HP Android versi lama.</p>
             </div>
         </div>
     </section>
 
     <section id="keamanan">
-        <h2 class="reveal">Keamanan</h2>
+        <h2 class="reveal">Fitur Keamanan</h2>
         <div class="grid">
             <div class="glass-card reveal">
                 <i class="fa-solid fa-location-dot"></i>
-                <h3>Geofencing</h3>
-                <p>Akses absen ditolak jika ustadz berada di luar radius 300 meter dari sekolah.</p>
+                <h3>Geofencing 300m</h3>
+                <p>Sistem mengunci koordinat. Jika tombol absen ditekan di luar radius 300 meter dari sekolah, akses akan otomatis ditolak.</p>
             </div>
             <div class="glass-card reveal">
                 <i class="fa-solid fa-ban"></i>
                 <h3>Anti-Fake GPS</h3>
-                <p>Sistem mampu mendeteksi dan memblokir penggunaan aplikasi lokasi palsu.</p>
+                <p>Secara cerdas mendeteksi penggunaan aplikasi lokasi palsu (Mock Location). Jika terdeteksi, akses diblokir total.</p>
             </div>
             <div class="glass-card reveal">
                 <i class="fa-solid fa-qrcode"></i>
                 <h3>Encrypted QR</h3>
-                <p>Sistem token UUID acak rahasia untuk mencegah pemalsuan barcode.</p>
+                <p>QR Code menggunakan token acak rahasia. Memblokir upaya scan dari barcode buatan sendiri, barcode wifi, atau hasil fotocopy.</p>
             </div>
         </div>
     </section>
 
     <section id="alur">
-        <h2 class="reveal">Alur Kerja</h2>
+        <h2 class="reveal">Cara Penggunaan Pantau Jam</h2>
+        <p class="reveal" style="margin-bottom: 2rem;">Alur kerja sederhana dan intuitif, memungkinkan Asatidzah melakukan presensi dalam hitungan detik.</p>
         <div class="grid">
             <div class="glass-card reveal">
                 <i class="fa-solid fa-mobile-screen"></i>
-                <h3>1. Aktivasi</h3>
-                <p>Ustadz membuka aplikasi saat tiba di lingkungan madrasah.</p>
+                <h3>1. Buka Aplikasi</h3>
+                <p>Sistem otomatis memuat sesi login yang tersimpan dan langsung memastikan sinyal GPS memadai untuk validasi lokasi.</p>
             </div>
             <div class="glass-card reveal">
-                <i class="fa-solid fa-qrcode"></i>
-                <h3>2. Scan di Kelas</h3>
-                <p>Scan barcode yang terpasang di depan pintu masing-masing kelas.</p>
+                <i class="fa-solid fa-camera"></i>
+                <h3>2. Tekan Scan</h3>
+                <p>Masuk ke menu pemindai kamera bawaan aplikasi. Antarmuka yang jelas akan memandu menuju langkah berikutnya.</p>
             </div>
             <div class="glass-card reveal">
-                <i class="fa-solid fa-database"></i>
-                <h3>3. Backup Offline</h3>
-                <p>Data riwayat kehadiran tersimpan di memori HP. Aman dan tidak akan hilang kecuali aplikasi di-uninstall.</p>
+                <i class="fa-solid fa-expand"></i>
+                <h3>3. Scan Barcode</h3>
+                <p>Arahkan kamera ke QR Code berbasis UUID yang terpasang di dinding kelas. Pemindai dengan cepat akan mengenali kode rahasia.</p>
             </div>
             <div class="glass-card reveal">
-                <i class="fa-solid fa-table-list"></i>
-                <h3>4. Rekap Online</h3>
-                <p>Data otomatis sinkronisasi full ke Google Spreadsheet untuk rekapan Staff TU.</p>
+                <i class="fa-solid fa-check-double"></i>
+                <h3>4. Selesai</h3>
+                <p>Data waktu (jam & menit) kehadiran langsung dikirim real-time ke sistem Google Sheets Admin dan tersimpan di riwayat kalender HP.</p>
             </div>
         </div>
     </section>
@@ -277,15 +288,17 @@
     <section id="closing">
         <div class="glass-card reveal" style="max-width: 800px; padding: 3rem 2rem; border: 1.5px solid var(--gold); margin: 0 auto;">
             <h2>Modern & Akuntabel</h2>
-            <p>"Menciptakan lingkungan kerja yang profesional melalui pemanfaatan teknologi tepat guna."</p>
+            <p>"Menciptakan lingkungan kerja yang lebih efisien, akuntabel, dan disiplin melalui pemanfaatan ekosistem digital modern."</p>
             <div style="margin-top: 1.2rem;">
                 <h3 style="color: var(--gold); margin-bottom: 0;">Pantau Jam (v1.0)</h3>
                 <p style="font-size: 0.85rem;">MA Plus Abu Hurairah Mataram</p>
             </div>
         </div>
+        <br>
+        <br>
         <a href="https://github.com/fajruldan/jam_pantau/releases/latest/download/pantau_jam.apk" class="download-btn reveal">
-        <i class="fa-brands fa-android"></i> <b>Download APK</b>
-    </a>
+            <i class="fa-brands fa-android"></i> <b>Download APK</b>
+        </a>
     </section>
 
     <footer style="padding: 2rem; display: flex; justify-content: center; align-items: center; color: #555; border-top: 1px solid #222; width: 100%; margin-top: auto;">
@@ -352,8 +365,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
