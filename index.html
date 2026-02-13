@@ -75,7 +75,6 @@
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
 
-        /* MOBILE MENU OVERLAY */
         .mobile-menu {
             position: fixed;
             top: 0; right: -100%;
@@ -125,7 +124,7 @@
             transition: 0.3s ease;
             flex: 1 1 300px; max-width: 360px;
             display: flex; flex-direction: column; align-items: center;
-            margin-left: auto; margin-right: auto; /* Memastikan kartu di tengah */
+            margin-left: auto; margin-right: auto;
         }
         .glass-card:hover { transform: translateY(-8px); border-color: var(--gold); }
         .glass-card i { font-size: 2.2rem; color: var(--gold); margin-bottom: 1rem; }
@@ -133,7 +132,6 @@
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* === TOP BUTTON === */
         #scrollTopBtn {
             position: fixed; bottom: 30px; right: 30px;
             width: 45px; height: 45px;
@@ -143,18 +141,12 @@
             transition: opacity 0.3s ease;
         }
 
-        /* === DOWNLOAD BUTTON PERBAIKAN === */
         .download-btn {
             display: inline-flex; align-items: center; background: #000; border: 1px solid #555;
             border-radius: 8px; padding: 12px 25px; text-decoration: none; margin-top: 2rem; transition: 0.3s;
             color: #fff;
         }
-        /* Ikon Android diberi warna Hijau Android Official */
-        .download-btn i.fa-android { 
-            color: #3DDC84; 
-            font-size: 1.8rem; 
-            margin-right: 12px; 
-        }
+        .download-btn i.fa-android { color: #3DDC84; font-size: 1.8rem; margin-right: 12px; }
 
         @media (max-width: 768px) {
             nav { justify-content: center; padding: 1rem 5%; }
@@ -170,19 +162,13 @@
 
     <nav id="navbar">
         <a href="#" class="logo">Pantau Jam</a>
-        
         <div class="nav-links">
             <a href="#masalah">Kendala</a>
             <a href="#fitur">Teknologi</a>
             <a href="#keamanan">Keamanan</a>
             <a href="#alur">Alur Kerja</a>
         </div>
-
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
@@ -196,8 +182,8 @@
 
     <section id="hero">
         <div class="reveal">
-            <img src="/logo.png" alt="Icon History" style="width: 8rem; height: 8rem; margin: 0 auto 1.5rem; display: block;">
-            <img src="/icon.png" alt="Icon History" style="width: 5rem; height: 5rem; margin: 0 auto 1.5rem; display: block;">
+            <img src="/logo.png" alt="Logo Sekolah" style="width: 8rem; height: 8rem; margin: 0 auto 1.5rem; display: block;">
+            <img src="/icon.png" alt="Icon Aplikasi" style="width: 5rem; height: 5rem; margin: 0 auto 1.5rem; display: block;">
             <h1>Pantau Jam</h1>
             <p style="font-size: 1.2rem; color: #fff;">Smart Attendance System MA Plus Abu Hurairah</p>
             <p>Sistem presensi digital dengan koordinat GPS dan QR Code terenkripsi</p>
@@ -262,6 +248,32 @@
         </div>
     </section>
 
+    <section id="alur">
+        <h2 class="reveal">Alur Kerja</h2>
+        <div class="grid">
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <h3>1. Aktivasi</h3>
+                <p>Ustadz membuka aplikasi saat tiba di lingkungan madrasah.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-qrcode"></i>
+                <h3>2. Scan di Kelas</h3>
+                <p>Scan barcode yang terpasang di depan pintu masing-masing kelas.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-database"></i>
+                <h3>3. Backup Offline</h3>
+                <p>Data riwayat kehadiran tersimpan di memori HP. Aman dan tidak akan hilang kecuali aplikasi di-uninstall.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-table-list"></i>
+                <h3>4. Rekap Online</h3>
+                <p>Data otomatis sinkronisasi full ke Google Spreadsheet untuk rekapan Staff TU.</p>
+            </div>
+        </div>
+    </section>
+
     <section id="closing">
         <div class="glass-card reveal" style="max-width: 800px; padding: 3rem 2rem; border: 1.5px solid var(--gold); margin: 0 auto;">
             <h2>Modern & Akuntabel</h2>
@@ -271,24 +283,17 @@
                 <p style="font-size: 0.85rem;">MA Plus Abu Hurairah Mataram</p>
             </div>
         </div>
-        <a href="https://github.com/fajruldan/jam_pantau/releases/download/v1.0.0/Pantau.Jam.apk" class="download-btn reveal">
-        <i class="fa-brands fa-android"></i> <b>Download APK</b></a>
+        <a href="https://github.com/fajruldan/jam_pantau/releases/latest/download/Pantau.Jam.apk" class="download-btn reveal">
+            <i class="fa-brands fa-android"></i> <b>Download APK</b>
+        </a>
     </section>
 
-    <footer style="
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #555;
-            border-top: 1px solid #222;
-            width: 100%;
-            margin-top: auto;">
-            <p style="font-size: 0.9rem; text-align: center; margin: 0;">
-                &copy; <script>document.write(new Date().getFullYear());</script>
-                Staff TU MA Plus Abu Hurairah (Mr. X)
-            </p>
-        </footer>
+    <footer style="padding: 2rem; display: flex; justify-content: center; align-items: center; color: #555; border-top: 1px solid #222; width: 100%; margin-top: auto;">
+        <p style="font-size: 0.9rem; text-align: center; margin: 0;">
+            &copy; <script>document.write(new Date().getFullYear());</script>
+            Staff TU MA Plus Abu Hurairah (Mr. X)
+        </p>
+    </footer>
 
     <script>
         const observer = new IntersectionObserver((entries) => {
