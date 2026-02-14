@@ -27,6 +27,21 @@
             color: var(--text-light);
             overflow-x: hidden;
             line-height: 1.6;
+            
+            /* === TAMBAHAN: Mencegah seleksi teks dan long-press di HP === */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard */
+            -webkit-touch-callout: none; /* Mencegah menu pop-up di iOS */
+        }
+
+        /* === TAMBAHAN: Mencegah gambar di-drag/diseret === */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            pointer-events: none; /* Menonaktifkan interaksi klik/tahan pada gambar */
         }
 
         .glow-circle {
@@ -115,6 +130,12 @@
             display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; width: 100%; max-width: 1200px;
             margin-top: 1rem;
         }
+        
+        .screenshot-grid {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; width: 100%; max-width: 1200px;
+            margin-top: 1rem;
+        }
+
         .glass-card {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -128,6 +149,25 @@
         }
         .glass-card:hover { transform: translateY(-8px); border-color: var(--gold); }
         .glass-card i { font-size: 2.2rem; color: var(--gold); margin-bottom: 1rem; }
+
+        .screenshot-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: 0.3s ease;
+            flex: 1 1 250px; max-width: 300px;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .screenshot-card:hover { transform: translateY(-8px); border-color: var(--gold); }
+        .screenshot-card img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -145,7 +185,15 @@
             display: inline-flex; align-items: center; background: #000; border: 1px solid #555;
             border-radius: 8px; padding: 12px 25px; text-decoration: none; margin-top: 2rem; transition: 0.3s;
             color: #fff;
+            position: relative;
+            z-index: 10; /* Pastikan tombol tetap bisa diklik */
         }
+        
+        /* Tambahan agar tombol download/link tetap bisa diklik meskipun ada pointer-events: none di gambar/body jika diterapkan ekstrim */
+        a {
+            -webkit-user-drag: none;
+        }
+
         .download-btn i.fa-android { color: #3DDC84; font-size: 1.8rem; margin-right: 12px; }
 
         @media (max-width: 768px) {
@@ -167,7 +215,7 @@
             <a href="#fitur">Teknologi</a>
             <a href="#keamanan">Keamanan</a>
             <a href="#alur">Alur Kerja</a>
-        </div>
+            <a href="#tampilan">Tampilan</a> </div>
         <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </nav>
 
@@ -176,7 +224,7 @@
         <a href="#fitur">Teknologi</a>
         <a href="#keamanan">Keamanan</a>
         <a href="#alur">Alur Kerja</a>
-    </div>
+        <a href="#tampilan">Tampilan</a> </div>
 
     <button id="scrollTopBtn" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
 
@@ -285,6 +333,57 @@
         </div>
     </section>
 
+<section id="tampilan">
+    <h2 class="reveal">Tampilan Aplikasi</h2>
+    <p class="reveal" style="margin-bottom: 2rem;">
+        Antarmuka modern dan responsif untuk kemudahan pengisian presensi harian.
+    </p>
+
+    <div class="screenshot-grid">
+
+        <div class="screenshot-card reveal">
+            <img src="/img/login.webp" alt="Tampilan Login">
+            <h3>Halaman Login</h3>
+        </div>
+
+        <div class="screenshot-card reveal">
+            <img src="/img/dasboard.webp" alt="Tampilan Dashboard">
+            <h3>Dashboard Utama</h3>
+        </div>
+
+        <div class="screenshot-card reveal">
+            <img src="/img/absen_berhasil.webp" alt="Tampilan Presensi">
+            <h3>Presensi Pengajar</h3>
+        </div>
+
+        <div class="screenshot-card reveal">
+            <img src="/img/qrcode.webp" alt="Tampilan Scanner">
+            <h3>Pemindai QR Code</h3>
+        </div>
+
+        <div class="screenshot-card reveal">
+            <img src="/img/fake_gps.webp" alt="Tampilan Fake GPS">
+            <h3>Fake GPS</h3>
+        </div>
+
+        <div class="screenshot-card reveal">
+            <img src="/img/riwayat.webp" alt="Tampilan Riwayat">
+            <h3>Riwayat Presensi</h3>
+        </div>
+
+        <div class="screenshot-card reveal">
+            <img src="/img/2x_absen.webp" alt="Duplikasi Presensi">
+            <h3>2× Absen di Kelas yang Sama</h3>
+        </div>
+
+        <div class="screenshot-card reveal">
+            <img src="/img/diluar.webp" alt="Tidak di Kelas">
+            <h3>Tidak Berada di Kelas</h3>
+        </div>
+
+    </div>
+</section>
+
     <section id="closing">
         <div class="glass-card reveal" style="max-width: 800px; padding: 3rem 2rem; border: 1.5px solid var(--gold); margin: 0 auto;">
             <h2>Modern & Akuntabel</h2>
@@ -309,6 +408,34 @@
     </footer>
 
     <script>
+        // === TAMBAHAN: JavaScript untuk Memblokir Klik Kanan & Keyboard Shortcuts ===
+
+        // 1. Blokir klik kanan (Context Menu) di Desktop & Mobile
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // 2. Blokir keyboard shortcut seperti F12 (Inspect Element), Ctrl+Shift+I, Ctrl+U (View Source)
+        document.onkeydown = function(e) {
+            if (e.key === "F12" || 
+               (e.ctrlKey && e.shiftKey && e.key === "I") || 
+               (e.ctrlKey && e.shiftKey && e.key === "J") || 
+               (e.ctrlKey && e.key === "U") || 
+               (e.ctrlKey && e.key === "u")) {
+                e.preventDefault();
+                return false;
+            }
+        }
+
+        // 3. Ekstra keamanan untuk mobile: Mencegah aksi tahan layar (long press)
+        window.addEventListener('touchstart', function (e) {
+            // Biarkan elemen link (A) atau tombol (BUTTON) tetap bisa diklik
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'I') {
+                return true;
+            }
+        }, {passive: false});
+
+        // ============================================================================
+
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -365,5 +492,3 @@
     </script>
 </body>
 </html>
-
-
