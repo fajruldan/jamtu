@@ -66,7 +66,7 @@
         }
         .logo { color: var(--gold); font-weight: 800; font-size: 1.5rem; text-decoration: none; z-index: 1001; }
         
-        .nav-links { display: flex; gap: 2rem; }
+        .nav-links { display: flex; gap: 1.5rem; }
         .nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--gold); }
 
@@ -98,7 +98,7 @@
             backdrop-filter: blur(20px);
             display: flex; flex-direction: column;
             justify-content: center; align-items: center;
-            gap: 2rem;
+            gap: 1.5rem;
             transition: 0.5s cubic-bezier(0.65, 0, 0.35, 1);
             z-index: 1000;
         }
@@ -106,7 +106,7 @@
         .mobile-menu a {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
             transition: 0.3s;
         }
@@ -181,18 +181,39 @@
             transition: opacity 0.3s ease;
         }
 
-        .download-btn {
-            display: inline-flex; align-items: center; background: #000; border: 1px solid #555;
-            border-radius: 8px; padding: 12px 25px; text-decoration: none; margin-top: 2rem; transition: 0.3s;
+.download-btn {
+            display: inline-flex; 
+            align-items: center; 
+            background: #000; 
+            border: 1.5px solid var(--gold); /* Border disesuaikan dengan tema emas */
+            border-radius: 12px; /* Sudut lebih melengkung */
+            padding: 25px 55px; /* Ruang dalam tombol diperbesar (Atas-Bawah 18px, Kiri-Kanan 45px) */
+            font-size: 1.6rem; /* Ukuran teks diperbesar */
+            text-decoration: none; 
+            margin-top: 2rem; 
+            transition: all 0.3s ease;
             color: #fff;
             position: relative;
-            z-index: 10; /* Pastikan tombol tetap bisa diklik */
+            z-index: 10; 
+            box-shadow: 0 5px 15px rgba(198, 163, 79, 0.2); /* Tambahan efek bayangan emas tipis */
         }
         
-        /* Tambahan agar tombol download/link tetap bisa diklik meskipun ada pointer-events: none di gambar/body jika diterapkan ekstrim */
-        a {
-            -webkit-user-drag: none;
+        /* Tambahan efek saat tombol disentuh/di-hover biar lebih interaktif */
+        .download-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(198, 163, 79, 0.4);
+            background: rgba(198, 163, 79, 0.1);
         }
+
+        a { -webkit-user-drag: none; }
+
+        .download-btn i.fa-android { 
+            color: #3DDC84; 
+            font-size: 2.4rem; /* Ukuran icon Android diperbesar */
+            margin-right: 15px; /* Jarak icon ke teks dijauhkan sedikit */
+        }
+        
+        a { -webkit-user-drag: none; }
 
         .download-btn i.fa-android { color: #3DDC84; font-size: 1.8rem; margin-right: 12px; }
 
@@ -214,8 +235,11 @@
             <a href="#masalah">Kendala</a>
             <a href="#fitur">Teknologi</a>
             <a href="#keamanan">Keamanan</a>
+            <a href="#jadwal">Jadwal</a>
+            <a href="#offline">Offline</a>
             <a href="#alur">Alur Kerja</a>
-            <a href="#tampilan">Tampilan</a> </div>
+            <a href="#tampilan">Tampilan</a> 
+        </div>
         <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </nav>
 
@@ -223,8 +247,11 @@
         <a href="#masalah">Kendala</a>
         <a href="#fitur">Teknologi</a>
         <a href="#keamanan">Keamanan</a>
+        <a href="#jadwal">Jadwal</a>
+        <a href="#offline">Offline</a>
         <a href="#alur">Alur Kerja</a>
-        <a href="#tampilan">Tampilan</a> </div>
+        <a href="#tampilan">Tampilan</a> 
+    </div>
 
     <button id="scrollTopBtn" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
 
@@ -275,7 +302,7 @@
             <div class="glass-card reveal">
                 <i class="fa-solid fa-database"></i>
                 <h3>Smart Offline Storage</h3>
-                <p>Data kehadiran otomatis masuk ke brankas HP lokal (SharedPreferences). Guru bisa cek riwayat absen kalender tanpa kuota internet. dan data akan selamanya ada kecuali aplikasi di <b>uninstall</b>.</p>
+                <p>Data kehadiran otomatis masuk ke brankas HP lokal (SharedPreferences). Guru bisa cek riwayat absen kalender tanpa kuota internet.</p>
             </div>
             <div class="glass-card reveal">
                 <i class="fa-solid fa-mobile-button"></i>
@@ -300,8 +327,96 @@
             </div>
             <div class="glass-card reveal">
                 <i class="fa-solid fa-qrcode"></i>
-                <h3>Encrypted QR</h3>
+                <h3>Encrypted QR (UUID)</h3>
                 <p>QR Code menggunakan token acak rahasia. Memblokir upaya scan dari barcode buatan sendiri, barcode wifi, atau hasil fotocopy.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-lock"></i>
+                <h3>Pengunci Layar (No-Back Bypass)</h3>
+                <p>Dilengkapi PopScope yang memblokir tombol Back atau Swipe bawaan Android. Pengguna tidak bisa keluar secara tidak sengaja kecuali menekan tombol Logout.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-user-shield"></i>
+                <h3>Satu Kali Absen per Kelas</h3>
+                <p>Sistem mencegah ustadz melakukan absen ganda (double scan) di kelas dan mata pelajaran yang sama pada hari yang sama.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="jadwal">
+        <h2 class="reveal">Logika Jadwal Pintar</h2>
+        <div class="grid">
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-clock"></i>
+                <h3>Deteksi Jam ke-1 s/d 9 Otomatis</h3>
+                <p>Saat scan, sistem langsung mengambil waktu HP dan mengonversinya menjadi "Jam Ke-berapa" sesuai SK Jadwal MA Plus.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-mug-hot"></i>
+                <h3>Blokir Waktu Istirahat</h3>
+                <p>Aplikasi otomatis menolak mentah-mentah upaya scan saat waktu istirahat (R1 & R2) atau di luar jam KBM sekolah.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-calendar-day"></i>
+                <h3>Pengamanan Hari Jum'at</h3>
+                <p>Otomatis mengenali hari Jum'at dan membatasi scan hanya sampai Jam ke-5 (11.45) untuk persiapan sholat Jum'at.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-stopwatch"></i>
+                <h3>Toleransi Keterlambatan</h3>
+                <p>Mengecek keterlambatan cerdas dengan toleransi 5 menit. Masuk lebih dari toleransi langsung tercatat status "Terlambat".</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="offline">
+        <h2 class="reveal">Mode Offline Pintar</h2>
+        <div class="grid">
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-wifi"></i>
+                <h3>Scan Tanpa Kuota</h3>
+                <p>Validasi lokasi, validasi jadwal, dan deteksi keterlambatan bisa berjalan 100% offline tanpa internet untuk area blank spot.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-floppy-disk"></i>
+                <h3>Penyimpanan Waktu Asli</h3>
+                <p>Saat internet mati, aplikasi menyimpan data presensi ke dalam memori lokal HP lengkap dengan Jam dan Tanggal Asli saat scan.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <h3>Auto-Sync Latar Belakang</h3>
+                <p>Setiap 10 detik sistem mengecek sinyal. Begitu terhubung, antrean data langsung dikirim ke server tanpa merubah jam scan aslinya.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <h3>Indikator Antrean</h3>
+                <p>Teks peringatan oranye di Dashboard untuk memberi tahu ustadz bahwa ada data presensi offline yang menunggu sinyal untuk dikirim.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sistem">
+        <h2 class="reveal">Antarmuka & Server</h2>
+        <div class="grid">
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-bolt-lightning"></i>
+                <h3>Login Cepat Tanpa Loading</h3>
+                <p>Proses login instan menggunakan data lokal 35 Guru MA Plus, siap digunakan tanpa menunggu lama.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <h3>Animasi Teroptimasi</h3>
+                <p>Dilengkapi AutomaticKeepAliveClientMixin. Animasi penyambutan bergerak mulus 1 kali, tidak membebani memori saat pindah tab.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-calendar-check"></i>
+                <h3>Kalender Riwayat Lokal</h3>
+                <p>Ustadz bisa memantau riwayat presensi harian secara rapi menggunakan kalender interaktif yang tersimpan lokal di HP.</p>
+            </div>
+            <div class="glass-card reveal">
+                <i class="fa-solid fa-table-columns"></i>
+                <h3>Perekaman 10 Kolom Rapi</h3>
+                <p>Integrasi Google Sheets & Apps Script. Data masuk real-time ke format: Timestamp, Hari, Tanggal, Nama, Kelas, Mapel, Jam Scan, Jam Ke, dll.</p>
             </div>
         </div>
     </section>
@@ -434,7 +549,6 @@
         }, {passive: false});
 
         // ============================================================================
-
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
