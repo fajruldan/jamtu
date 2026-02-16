@@ -28,20 +28,18 @@
             overflow-x: hidden;
             line-height: 1.6;
             
-            /* === TAMBAHAN: Mencegah seleksi teks dan long-press di HP === */
-            -webkit-user-select: none; /* Safari */
-            -ms-user-select: none; /* IE 10 and IE 11 */
-            user-select: none; /* Standard */
-            -webkit-touch-callout: none; /* Mencegah menu pop-up di iOS */
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
         }
 
-        /* === TAMBAHAN: Mencegah gambar di-drag/diseret === */
         img {
             -webkit-user-drag: none;
             -khtml-user-drag: none;
             -moz-user-drag: none;
             -o-user-drag: none;
-            pointer-events: none; /* Menonaktifkan interaksi klik/tahan pada gambar */
+            pointer-events: none;
         }
 
         .glow-circle {
@@ -53,7 +51,6 @@
             z-index: -1;
         }
 
-        /* === NAVBAR UTAMA === */
         nav {
             position: fixed;
             top: 0; width: 100%; z-index: 1000;
@@ -70,7 +67,6 @@
         .nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--gold); }
 
-        /* === HAMBURGER MENU === */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -111,7 +107,6 @@
             transition: 0.3s;
         }
 
-        /* === SECTIONS === */
         section {
             min-height: auto;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -169,6 +164,67 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
+        /* === TAMBAHAN: Style Khusus Gambar Landscape === */
+        .landscape-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: 0.3s ease;
+            width: 100%; max-width: 900px; /* Dibuat lebar */
+            margin-top: 3rem;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .landscape-card:hover { transform: translateY(-8px); border-color: var(--gold); }
+        .landscape-card img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: zoom-in; /* Menampilkan icon kaca pembesar saat diarahkan */
+            pointer-events: auto !important; /* WAJIB: Membuka kunci klik yang diblokir di atas */
+        }
+
+        /* === TAMBAHAN: Style Modal/Zoom Kaca Pembesar === */
+        .zoom-modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            padding-top: 60px; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            background-color: rgba(0,0,0,0.9); 
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+        .zoom-modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--gold);
+            animation: zoomAnim 0.3s ease;
+        }
+        @keyframes zoomAnim {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
+        .close-zoom {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .close-zoom:hover, .close-zoom:focus { color: var(--gold); text-decoration: none; cursor: pointer; }
+
+
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -181,24 +237,23 @@
             transition: opacity 0.3s ease;
         }
 
-.download-btn {
+        .download-btn {
             display: inline-flex; 
             align-items: center; 
             background: #000; 
-            border: 1.5px solid var(--gold); /* Border disesuaikan dengan tema emas */
-            border-radius: 12px; /* Sudut lebih melengkung */
-            padding: 20px 45px; /* Ruang dalam tombol diperbesar (Atas-Bawah 18px, Kiri-Kanan 45px) */
-            font-size: 1.4rem; /* Ukuran teks diperbesar */
+            border: 1.5px solid var(--gold); 
+            border-radius: 12px; 
+            padding: 20px 45px; 
+            font-size: 1.4rem; 
             text-decoration: none; 
             margin-top: 2rem; 
             transition: all 0.3s ease;
             color: #fff;
             position: relative;
             z-index: 10; 
-            box-shadow: 0 5px 15px rgba(198, 163, 79, 0.2); /* Tambahan efek bayangan emas tipis */
+            box-shadow: 0 5px 15px rgba(198, 163, 79, 0.2); 
         }
         
-        /* Tambahan efek saat tombol disentuh/di-hover biar lebih interaktif */
         .download-btn:hover {
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 8px 25px rgba(198, 163, 79, 0.4);
@@ -209,19 +264,16 @@
 
         .download-btn i.fa-android { 
             color: #3DDC84; 
-            font-size: 2.4rem; /* Ukuran icon Android diperbesar */
-            margin-right: 15px; /* Jarak icon ke teks dijauhkan sedikit */
+            font-size: 2.4rem; 
+            margin-right: 15px; 
         }
-        
-        a { -webkit-user-drag: none; }
-
-        .download-btn i.fa-android { color: #3DDC84; font-size: 1.8rem; margin-right: 12px; }
 
         @media (max-width: 768px) {
             nav { justify-content: center; padding: 1rem 5%; }
             .nav-links { display: none; }
             .hamburger { display: block; position: absolute; right: 5%; }
             #hero { padding-top: 8rem; }
+            .zoom-modal-content { width: 100%; border-radius: 0;}
         }
     </style>
 </head>
@@ -401,7 +453,7 @@
             <div class="glass-card reveal">
                 <i class="fa-solid fa-bolt-lightning"></i>
                 <h3>Login Cepat Tanpa Loading</h3>
-                <p>Proses login instan menggunakan data lokal 35 Guru MA Plus, siap digunakan tanpa menunggu lama.</p>
+                <p>Proses login instan menggunakan data lokal 39 Guru MA Plus, siap digunakan tanpa menunggu lama.</p>
             </div>
             <div class="glass-card reveal">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
@@ -415,8 +467,8 @@
             </div>
             <div class="glass-card reveal">
                 <i class="fa-solid fa-table-columns"></i>
-                <h3>Perekaman 10 Kolom Rapi</h3>
-                <p>Integrasi Google Sheets & Apps Script. Data masuk real-time ke format: Timestamp, Hari, Tanggal, Nama, Kelas, Mapel, Jam Scan, Jam Ke, dll.</p>
+                <h3>Perekaman 9 Kolom Rapi</h3>
+                <p>Integrasi Google Sheets & Apps Script. Data masuk real-time ke format: Timestamp, Hari, Tanggal, Nama, Kelas, Jam Scan, Jam Ke, dll.</p>
             </div>
         </div>
     </section>
@@ -455,48 +507,56 @@
     </p>
 
     <div class="screenshot-grid">
-
         <div class="screenshot-card reveal">
             <img src="/img/login.webp" alt="Tampilan Login">
             <h3>Halaman Login</h3>
         </div>
-
         <div class="screenshot-card reveal">
             <img src="/img/dasboard.webp" alt="Tampilan Dashboard">
             <h3>Dashboard Utama</h3>
         </div>
-
         <div class="screenshot-card reveal">
             <img src="/img/absen_berhasil.webp" alt="Tampilan Presensi">
             <h3>Presensi Pengajar</h3>
         </div>
-
         <div class="screenshot-card reveal">
             <img src="/img/qrcode.webp" alt="Tampilan Scanner">
             <h3>Pemindai QR Code</h3>
         </div>
-
         <div class="screenshot-card reveal">
             <img src="/img/fake_gps.webp" alt="Tampilan Fake GPS">
             <h3>Fake GPS</h3>
         </div>
-
         <div class="screenshot-card reveal">
             <img src="/img/riwayat.webp" alt="Tampilan Riwayat">
             <h3>Riwayat Presensi</h3>
         </div>
-
         <div class="screenshot-card reveal">
             <img src="/img/2x_absen.webp" alt="Duplikasi Presensi">
-            <h3>2× Absen di Kelas yang Sama</h3>
+            <h3>2× Absen di Kelas</h3>
         </div>
-
         <div class="screenshot-card reveal">
             <img src="/img/diluar.webp" alt="Tidak di Kelas">
             <h3>Tidak Berada di Kelas</h3>
         </div>
-
     </div>
+
+    <div class="landscape-card reveal">
+        <h3 style="margin-bottom: 0.5rem;">Database (Google Sheets)</h3>
+        <p style="font-size: 0.85rem; color: var(--gold); margin-bottom: 1rem;">(Klik gambar untuk memperbesar)</p>
+        <img src="/img/database.webp" class="zoomable-img" alt="Perekaman 9 Kolom Google Sheets">
+    </div>
+
+    <div class="landscape-card reveal">
+        <p style="font-size: 0.85rem; color: var(--gold); margin-bottom: 1rem;">(Klik gambar untuk memperbesar)</p>
+        <img src="/img/database2.webp" class="zoomable-img" alt="Perekaman 9 Kolom Google Sheets">
+    </div>
+
+    <div class="landscape-card reveal">
+        <p style="font-size: 0.85rem; color: var(--gold); margin-bottom: 1rem;">(Klik gambar untuk memperbesar)</p>
+        <img src="/img/database3.webp" class="zoomable-img" alt="Perekaman 9 Kolom Google Sheets">
+    </div>
+
 </section>
 
     <section id="closing">
@@ -522,13 +582,15 @@
         </p>
     </footer>
 
-    <script>
-        // === TAMBAHAN: JavaScript untuk Memblokir Klik Kanan & Keyboard Shortcuts ===
+    <div id="imageModal" class="zoom-modal">
+        <span class="close-zoom">&times;</span>
+        <img class="zoom-modal-content" id="imgModalTarget">
+    </div>
 
-        // 1. Blokir klik kanan (Context Menu) di Desktop & Mobile
+    <script>
+        // === BLOKIR KLIK KANAN & SHORTCUT ===
         document.addEventListener('contextmenu', event => event.preventDefault());
 
-        // 2. Blokir keyboard shortcut seperti F12 (Inspect Element), Ctrl+Shift+I, Ctrl+U (View Source)
         document.onkeydown = function(e) {
             if (e.key === "F12" || 
                (e.ctrlKey && e.shiftKey && e.key === "I") || 
@@ -540,16 +602,15 @@
             }
         }
 
-        // 3. Ekstra keamanan untuk mobile: Mencegah aksi tahan layar (long press)
         window.addEventListener('touchstart', function (e) {
-            // Biarkan elemen link (A) atau tombol (BUTTON) tetap bisa diklik
-            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'I') {
+            // === PERBAIKAN: Izinkan class zoomable-img agar bisa diklik di HP ===
+            if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'I' || e.target.classList.contains('zoomable-img') || e.target.id === 'imgModalTarget') {
                 return true;
             }
         }, {passive: false});
 
-        // ============================================================================
 
+        // === ANIMASI SCROLL REVEAL ===
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) entry.target.classList.add('active');
@@ -557,6 +618,8 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
+
+        // === NAVBAR & HAMBURGER ===
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         const scrollTopBtn = document.getElementById("scrollTopBtn");
@@ -603,7 +666,33 @@
         }, false);
 
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+
+        // === TAMBAHAN: FUNGSI ZOOM / LIGHTBOX KHUSUS BANYAK GAMBAR ===
+        const modal = document.getElementById("imageModal");
+        const zoomableImages = document.querySelectorAll(".zoomable-img"); // Mengambil SEMUA gambar dengan class ini
+        const modalImg = document.getElementById("imgModalTarget");
+        const closeBtn = document.getElementsByClassName("close-zoom")[0];
+
+        // Looping semua gambar agar semuanya bisa diklik
+        zoomableImages.forEach(img => {
+            img.onclick = function(){
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            }
+        });
+
+        // Saat tanda (X) diklik, tutup modal
+        closeBtn.onclick = function() { 
+            modal.style.display = "none";
+        }
+
+        // Saat area gelap di luar gambar diklik, tutup modal
+        modal.onclick = function(e) {
+            if(e.target !== modalImg && e.target !== closeBtn) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 </html>
-
