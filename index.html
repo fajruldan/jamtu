@@ -84,6 +84,7 @@
         .nav-download-btn i {
             font-size: 1rem;
             color: #3DDC84;
+            transition: 0.3s;
         }
         .nav-download-btn:hover {
             background: rgba(198, 163, 79, 0.2);
@@ -224,6 +225,7 @@
         .download-btn-hero i {
             font-size: 1.8rem;
             color: #3DDC84;
+            transition: 0.3s;
         }
 
         h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--gold); font-weight: 800; margin-bottom: 0.5rem; }
@@ -287,6 +289,32 @@
             align-items: center; justify-content: center; font-size: 1.2rem;
         }
 
+        /* ANIMASI TOAST DOWNLOAD */
+        #downloadToast {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #3DDC84; /* Warna hijau khas Android */
+            color: #0f0f0f;
+            padding: 14px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(61, 220, 132, 0.4);
+            transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2000;
+            pointer-events: none;
+        }
+        #downloadToast.show {
+            bottom: 40px;
+        }
+        #downloadToast i {
+            font-size: 1.4rem;
+        }
+
         footer {
             padding: 2rem; display: flex; justify-content: center; align-items: center; 
             color: #555; border-top: 1px solid #222; width: 100%; margin-top: auto;
@@ -300,6 +328,12 @@
             .premium-card { padding: 1.5rem; }
             .premium-card p.quote-text { font-size: 1rem; }
             .download-btn-hero { padding: 10px 24px; font-size: 1rem; }
+            #downloadToast {
+                width: 90%;
+                justify-content: center;
+                font-size: 0.95rem;
+                padding: 12px 20px;
+            }
         }
     </style>
 </head>
@@ -312,7 +346,7 @@
             <a href="#tampilan">Tampilan</a>
             <!-- Tombol download di navbar desktop -->
             <a href="https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk" class="nav-download-btn" download onclick="startDownload(this)">
-                <i class="fa-brands fa-android"></i> Download APK
+                <i class="fa-brands fa-android"></i> <span>Download APK</span>
             </a>
         </div>
         <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -322,7 +356,7 @@
         <a href="#tampilan">Tampilan</a>
         <!-- Tambahan menu download APK di hamburger mobile -->
         <a href="https://github.com/fajruldan/jamtu/releases/download/v.3.0/pantau_jam_v3.apk" class="mobile-download-link" download onclick="startDownload(this)">
-            <i class="fa-brands fa-android"></i> Download APK
+            <i class="fa-brands fa-android"></i> <span>Download APK</span>
         </a>
     </div>
 
@@ -370,6 +404,11 @@
     <footer>
         <p style="font-size: 0.9rem; text-align: center;">&copy; <script>document.write(new Date().getFullYear());</script> Staff T.U MA Plus</p>
     </footer>
+
+    <!-- Toast Animasi Download -->
+    <div id="downloadToast">
+        <i class="fa-solid fa-circle-check"></i> Mengunduh APK, periksa bilah notifikasi...
+    </div>
 
     <script>
         // Blokir klik kanan & shortcut dev tools
@@ -422,22 +461,32 @@
         });
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-        // Fungsi efek visual saat download ditekan (Mencegah buka halaman baru)
+        // Fungsi efek visual saat download ditekan (Memunculkan Toast & Tetap di Halaman)
         function startDownload(btn) {
-            // Simpan teks asli
+            // Simpan state asli
             const originalContent = btn.innerHTML;
+            const toast = document.getElementById('downloadToast');
             
-            // Ubah teks dan icon menjadi loading spinner
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="color: #3DDC84;"></i> <b>Mengunduh...</b>';
-            btn.style.pointerEvents = 'none'; // Cegah klik ganda selama proses
+            // Ubah tombol jadi loading & nonaktifkan klik sementara
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="color: #3DDC84;"></i> <b>Memproses...</b>';
+            btn.style.pointerEvents = 'none'; 
             btn.style.opacity = '0.8';
 
-            // Kembalikan ke tampilan semula setelah 3 detik
+            // Tampilkan Notifikasi Toast
+            toast.classList.add('show');
+
+            // Setelah 1.5 detik, ubah text tombol jadi sukses
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fa-solid fa-check" style="color: #3DDC84;"></i> <b>Diunduh</b>';
+            }, 1500);
+
+            // Setelah 5 detik, hilangkan Toast dan kembalikan tombol seperti semula
             setTimeout(() => {
                 btn.innerHTML = originalContent;
                 btn.style.pointerEvents = 'auto';
                 btn.style.opacity = '1';
-            }, 3000);
+                toast.classList.remove('show');
+            }, 5000);
         }
     </script>
 </body>
