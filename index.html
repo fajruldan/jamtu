@@ -77,6 +77,9 @@
             gap: 8px;
             font-weight: 600;
             transition: 0.3s;
+            cursor: pointer;
+            color: var(--text-light);
+            text-decoration: none;
         }
         .nav-download-btn i {
             font-size: 1rem;
@@ -137,6 +140,7 @@
             align-items: center;
             gap: 12px;
             font-size: 1.3rem;
+            cursor: pointer;
         }
         .mobile-download-link i {
             font-size: 1.8rem;
@@ -210,6 +214,7 @@
             color: #fff;
             gap: 12px;
             box-shadow: 0 5px 15px rgba(198, 163, 79, 0.2);
+            cursor: pointer;
         }
         .download-btn-hero:hover {
             transform: translateY(-4px) scale(1.02);
@@ -306,7 +311,7 @@
         <div class="nav-links">
             <a href="#tampilan">Tampilan</a>
             <!-- Tombol download di navbar desktop -->
-            <a href="https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk" class="nav-download-btn" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk" class="nav-download-btn" download onclick="startDownload(this)">
                 <i class="fa-brands fa-android"></i> Download APK
             </a>
         </div>
@@ -316,7 +321,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <a href="#tampilan">Tampilan</a>
         <!-- Tambahan menu download APK di hamburger mobile -->
-        <a href="https://github.com/fajruldan/jamtu/releases/download/v.3.0/pantau_jam_v3.apk" class="mobile-download-link" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/fajruldan/jamtu/releases/download/v.3.0/pantau_jam_v3.apk" class="mobile-download-link" download onclick="startDownload(this)">
             <i class="fa-brands fa-android"></i> Download APK
         </a>
     </div>
@@ -339,7 +344,8 @@
                 <div class="versi-info">
                     <h3>Pantau Jam (v4.0)</h3>
                 </div>
-                <a href="https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk" class="download-btn-hero" target="_blank" rel="noopener noreferrer">
+                <!-- Tombol download di hero section -->
+                <a href="https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk" class="download-btn-hero" download onclick="startDownload(this)">
                     <i class="fa-brands fa-android"></i> <b>Download APK</b>
                 </a>
             </div>
@@ -415,6 +421,24 @@
             checkScrollButton();
         });
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+        // Fungsi efek visual saat download ditekan (Mencegah buka halaman baru)
+        function startDownload(btn) {
+            // Simpan teks asli
+            const originalContent = btn.innerHTML;
+            
+            // Ubah teks dan icon menjadi loading spinner
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="color: #3DDC84;"></i> <b>Mengunduh...</b>';
+            btn.style.pointerEvents = 'none'; // Cegah klik ganda selama proses
+            btn.style.opacity = '0.8';
+
+            // Kembalikan ke tampilan semula setelah 3 detik
+            setTimeout(() => {
+                btn.innerHTML = originalContent;
+                btn.style.pointerEvents = 'auto';
+                btn.style.opacity = '1';
+            }, 3000);
+        }
     </script>
 </body>
 </html>
