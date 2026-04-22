@@ -40,7 +40,15 @@
             pointer-events: none;
         }
 
-        /* Latar belakang elemen dekoratif (glow) */
+        /* Reset button global */
+        button {
+            font-family: 'Poppins', sans-serif;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+        }
+
         .glow-circle {
             position: fixed;
             width: 600px; height: 600px;
@@ -66,7 +74,6 @@
         .nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--gold); }
         
-        /* Tombol download di navbar desktop */
         .nav-download-btn {
             background: transparent;
             border: 1.5px solid var(--gold);
@@ -76,6 +83,7 @@
             align-items: center;
             gap: 8px;
             font-weight: 600;
+            font-size: 0.85rem;
             transition: 0.3s;
             cursor: pointer;
             color: var(--text-light);
@@ -130,11 +138,11 @@
             transition: 0.3s;
         }
         .mobile-menu a:hover { color: var(--gold); }
-        /* Tombol download spesial di mobile menu */
+
         .mobile-download-link {
             margin-top: 0.5rem;
             background: rgba(198, 163, 79, 0.15);
-            border: 1.5px solid var(--gold);
+            border: 1.5px solid var(--gold) !important;
             border-radius: 60px;
             padding: 0.8rem 2rem;
             display: inline-flex;
@@ -142,13 +150,16 @@
             gap: 12px;
             font-size: 1.3rem;
             cursor: pointer;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: 0.3s;
         }
         .mobile-download-link i {
             font-size: 1.8rem;
             color: #3DDC84;
         }
 
-        /* SECTION umum */
         section {
             min-height: auto;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
@@ -157,7 +168,6 @@
         }
         #hero { padding-top: 10rem; padding-bottom: 2rem; }
         
-        /* Highlight untuk area "Quote + Download" yang dipindah ke atas */
         .hero-highlight {
             margin-top: 1.2rem;
             margin-bottom: 1rem;
@@ -209,13 +219,14 @@
             border-radius: 60px; 
             padding: 12px 32px; 
             font-size: 1.2rem; 
-            text-decoration: none; 
             margin-top: 1.4rem;
             transition: all 0.3s ease;
             color: #fff;
             gap: 12px;
             box-shadow: 0 5px 15px rgba(198, 163, 79, 0.2);
             cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
         }
         .download-btn-hero:hover {
             transform: translateY(-4px) scale(1.02);
@@ -289,13 +300,12 @@
             align-items: center; justify-content: center; font-size: 1.2rem;
         }
 
-        /* ANIMASI TOAST DOWNLOAD */
         #downloadToast {
             position: fixed;
             bottom: -100px;
             left: 50%;
             transform: translateX(-50%);
-            background: #3DDC84; /* Warna hijau khas Android */
+            background: #3DDC84;
             color: #0f0f0f;
             padding: 14px 28px;
             border-radius: 40px;
@@ -307,6 +317,7 @@
             transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 2000;
             pointer-events: none;
+            white-space: nowrap;
         }
         #downloadToast.show {
             bottom: 40px;
@@ -344,25 +355,24 @@
         <a href="#" class="logo">Pantau Jam</a>
         <div class="nav-links">
             <a href="#tampilan">Tampilan</a>
-            <!-- Tombol download di navbar desktop -->
-            <a href="https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk" class="nav-download-btn" download onclick="startDownload(this)">
+            <!-- Tombol download navbar desktop -->
+            <button class="nav-download-btn" onclick="startDownload(this, 'https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk')">
                 <i class="fa-brands fa-android"></i> <span>Download APK</span>
-            </a>
+            </button>
         </div>
         <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
         <a href="#tampilan">Tampilan</a>
-        <!-- Tambahan menu download APK di hamburger mobile -->
-        <a href="https://github.com/fajruldan/jamtu/releases/download/v.3.0/pantau_jam_v3.apk" class="mobile-download-link" download onclick="startDownload(this)">
+        <!-- Tombol download mobile menu -->
+        <button class="mobile-download-link" onclick="startDownload(this, 'https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk')">
             <i class="fa-brands fa-android"></i> <span>Download APK</span>
-        </a>
+        </button>
     </div>
 
     <button id="scrollTopBtn" onclick="scrollToTop()"><i class="fa-solid fa-arrow-up"></i></button>
 
-    <!-- HERO SECTION: Logo, Judul, Sub, lalu langsung Motto + Download APK di atas latar belakang -->
     <section id="hero">
         <div class="reveal">
             <img src="/logo.png" alt="Logo Sekolah" style="width: 7rem; height: 7rem; margin: 0 auto 0.8rem; display: block; pointer-events: none;">
@@ -372,21 +382,19 @@
             <p class="hero-desc">Sistem presensi digital dengan integrasi real-time Google Sheets sebagai database.</p>
         </div>
 
-        <!-- BAGIAN Motto + Versi + Download APK, BERADA DI ATAS LATAR BELAKANG -->
         <div class="hero-highlight reveal">
             <div class="premium-card">
                 <div class="versi-info">
                     <h3>Pantau Jam (v4.0)</h3>
                 </div>
-                <!-- Tombol download di hero section -->
-                <a href="https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk" class="download-btn-hero" download onclick="startDownload(this)">
+                <!-- Tombol download hero -->
+                <button class="download-btn-hero" onclick="startDownload(this, 'https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk')">
                     <i class="fa-brands fa-android"></i> <b>Download APK</b>
-                </a>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- ========== YANG TERSISA: HANYA TAMPILAN APLIKASI (screenshot) ========== -->
     <section id="tampilan">
         <h2 class="reveal">Tampilan Aplikasi</h2>
         <div class="screenshot-grid">
@@ -459,28 +467,32 @@
             lastScrollTop = st <= 0 ? 0 : st;
             checkScrollButton();
         });
+
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-        // Fungsi efek visual saat download ditekan (Memunculkan Toast & Tetap di Halaman)
-        function startDownload(btn) {
-            // Simpan state asli
+        // Fungsi download — trigger via JS, tidak ada href di elemen
+        function startDownload(btn, url) {
             const originalContent = btn.innerHTML;
             const toast = document.getElementById('downloadToast');
-            
-            // Ubah tombol jadi loading & nonaktifkan klik sementara
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="color: #3DDC84;"></i> <b>Memproses...</b>';
-            btn.style.pointerEvents = 'none'; 
-            btn.style.opacity = '0.8';
 
-            // Tampilkan Notifikasi Toast
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin" style="color: #3DDC84;"></i> <b>Memproses...</b>';
+            btn.style.pointerEvents = 'none';
+            btn.style.opacity = '0.8';
             toast.classList.add('show');
 
-            // Setelah 1.5 detik, ubah text tombol jadi sukses
+            // Trigger download setelah 1.5 detik via elemen <a> sementara
             setTimeout(() => {
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = '';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+
                 btn.innerHTML = '<i class="fa-solid fa-check" style="color: #3DDC84;"></i> <b>Diunduh</b>';
             }, 1500);
 
-            // Setelah 5 detik, hilangkan Toast dan kembalikan tombol seperti semula
+            // Kembalikan tombol & sembunyikan toast setelah 5 detik
             setTimeout(() => {
                 btn.innerHTML = originalContent;
                 btn.style.pointerEvents = 'auto';
