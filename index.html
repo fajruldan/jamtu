@@ -40,7 +40,6 @@
             pointer-events: none;
         }
 
-        /* Reset button global */
         button {
             font-family: 'Poppins', sans-serif;
             background: none;
@@ -67,13 +66,13 @@
             border-bottom: 1px solid var(--glass-border);
             padding: 1rem 10%;
             display: flex; justify-content: space-between; align-items: center;
-            transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .logo { color: var(--gold); font-weight: 800; font-size: 1.5rem; text-decoration: none; z-index: 1001; }
         .nav-links { display: flex; gap: 1.5rem; align-items: center; }
         .nav-links a { color: var(--text-light); text-decoration: none; font-size: 0.85rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--gold); }
-        
+
         .nav-download-btn {
             background: transparent;
             border: 1.5px solid var(--gold);
@@ -89,15 +88,8 @@
             color: var(--text-light);
             text-decoration: none;
         }
-        .nav-download-btn i {
-            font-size: 1rem;
-            color: #3DDC84;
-            transition: 0.3s;
-        }
-        .nav-download-btn:hover {
-            background: rgba(198, 163, 79, 0.2);
-            transform: translateY(-2px);
-        }
+        .nav-download-btn i { font-size: 1rem; color: #3DDC84; transition: 0.3s; }
+        .nav-download-btn:hover { background: rgba(198, 163, 79, 0.2); transform: translateY(-2px); }
 
         .hamburger {
             display: none;
@@ -155,10 +147,7 @@
             font-weight: 600;
             transition: 0.3s;
         }
-        .mobile-download-link i {
-            font-size: 1.8rem;
-            color: #3DDC84;
-        }
+        .mobile-download-link i { font-size: 1.8rem; color: #3DDC84; }
 
         section {
             min-height: auto;
@@ -167,7 +156,7 @@
             text-align: center; width: 100%;
         }
         #hero { padding-top: 10rem; padding-bottom: 2rem; }
-        
+
         .hero-highlight {
             margin-top: 1.2rem;
             margin-bottom: 1rem;
@@ -200,25 +189,18 @@
             font-weight: 400;
             letter-spacing: 0.3px;
         }
-        .premium-card .versi-info h3 {
-            color: var(--gold);
-            font-size: 1.4rem;
-            margin-bottom: 0.2rem;
-            font-weight: 700;
-        }
-        .premium-card .versi-info p {
-            color: #ddd;
-            font-size: 0.85rem;
-        }
+        .premium-card .versi-info h3 { color: var(--gold); font-size: 1.4rem; margin-bottom: 0.2rem; font-weight: 700; }
+        .premium-card .versi-info p { color: #ddd; font-size: 0.85rem; }
+
         .download-btn-hero {
-            display: inline-flex; 
-            align-items: center; 
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
-            background: #000; 
-            border: 1.5px solid var(--gold); 
-            border-radius: 60px; 
-            padding: 12px 32px; 
-            font-size: 1.2rem; 
+            background: #000;
+            border: 1.5px solid var(--gold);
+            border-radius: 60px;
+            padding: 12px 32px;
+            font-size: 1.2rem;
             margin-top: 1.4rem;
             transition: all 0.3s ease;
             color: #fff;
@@ -233,16 +215,12 @@
             background: rgba(198, 163, 79, 0.15);
             box-shadow: 0 8px 25px rgba(198, 163, 79, 0.4);
         }
-        .download-btn-hero i {
-            font-size: 1.8rem;
-            color: #3DDC84;
-            transition: 0.3s;
-        }
+        .download-btn-hero i { font-size: 1.8rem; color: #3DDC84; transition: 0.3s; }
 
         h1 { font-size: clamp(2.5rem, 5vw, 4rem); color: var(--gold); font-weight: 800; margin-bottom: 0.5rem; }
         .hero-sub { font-size: 1.2rem; color: #fff; margin-bottom: 0.25rem; font-weight: 500; }
         .hero-desc { font-size: 0.95rem; color: var(--text-muted); max-width: 700px; margin: 0.5rem auto 0; }
-        
+
         h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); color: #fff; margin-bottom: 2rem; font-weight: 700; position: relative; }
         h2::after { content: ''; display: block; width: 50px; height: 3px; background: var(--gold); margin: 10px auto; }
         h3 { font-size: 1.2rem; color: var(--gold); margin-bottom: 0.8rem; font-weight: 600; }
@@ -289,6 +267,120 @@
             pointer-events: none;
         }
 
+        /* Web Dashboard Section */
+        #dashboard-web { padding-top: 2rem; padding-bottom: 4rem; }
+        .web-dashboard-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.8rem;
+            width: 100%;
+            max-width: 900px;
+        }
+        .web-dashboard-img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 1px solid var(--glass-border);
+            pointer-events: all;  /* override global img rule agar bisa diklik */
+            object-fit: contain;
+            cursor: zoom-in;
+            transition: box-shadow 0.3s, border-color 0.3s;
+        }
+        .web-dashboard-img:hover {
+            box-shadow: 0 20px 50px rgba(198,163,79,0.25);
+            border-color: var(--gold);
+        }
+        .web-open-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            border: 1.5px solid var(--gold);
+            border-radius: 40px;
+            padding: 0.7rem 1.8rem;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(198, 163, 79, 0.15);
+        }
+        .web-open-btn i { color: var(--gold); font-size: 0.9rem; }
+        .web-open-btn:hover {
+            background: rgba(198, 163, 79, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(198, 163, 79, 0.3);
+        }
+
+        /* LIGHTBOX */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.93);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;          /* langsung blok pointer saat hidden */
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            backdrop-filter: blur(8px);
+            cursor: zoom-out;
+        }
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+        }
+        /* Exempt #lightboxImg dari global img { pointer-events: none } */
+        #lightboxImg {
+            pointer-events: all !important;
+            max-width: 95vw;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(198,163,79,0.2);
+            transform: scale(0.85);
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: zoom-out;
+            -webkit-user-drag: none;
+        }
+        .lightbox-overlay.active #lightboxImg {
+            transform: scale(1);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 18px;
+            right: 24px;
+            color: #fff;
+            font-size: 2.2rem;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: 0.2s;
+            background: none;
+            border: none;
+            line-height: 1;
+            font-family: inherit;
+            z-index: 10000;
+            pointer-events: all;
+        }
+        .lightbox-close:hover { opacity: 1; color: var(--gold); }
+        .lightbox-hint {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.35);
+            font-size: 0.78rem;
+            pointer-events: none;
+            letter-spacing: 0.5px;
+        }
+
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -319,15 +411,11 @@
             pointer-events: none;
             white-space: nowrap;
         }
-        #downloadToast.show {
-            bottom: 40px;
-        }
-        #downloadToast i {
-            font-size: 1.4rem;
-        }
+        #downloadToast.show { bottom: 40px; }
+        #downloadToast i { font-size: 1.4rem; }
 
         footer {
-            padding: 2rem; display: flex; justify-content: center; align-items: center; 
+            padding: 2rem; display: flex; justify-content: center; align-items: center;
             color: #555; border-top: 1px solid #222; width: 100%; margin-top: auto;
         }
 
@@ -345,6 +433,12 @@
                 font-size: 0.95rem;
                 padding: 12px 20px;
             }
+            .web-dashboard-img {
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            }
+            .web-open-btn { font-size: 0.9rem; padding: 0.6rem 1.4rem; }
+            .lightbox-hint { display: none; }
         }
     </style>
 </head>
@@ -354,8 +448,8 @@
     <nav id="navbar">
         <a href="#" class="logo">Pantau Jam</a>
         <div class="nav-links">
-            <a href="#tampilan">Tampilan</a>
-            <!-- Tombol download navbar desktop -->
+            <a href="#tampilan">Screenshot Aplikasi</a>
+            <a href="#dashboard-web">Hasil Scan</a>
             <button class="nav-download-btn" onclick="startDownload(this, 'https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk')">
                 <i class="fa-brands fa-android"></i> <span>Download APK</span>
             </button>
@@ -364,8 +458,8 @@
     </nav>
 
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#tampilan">Tampilan</a>
-        <!-- Tombol download mobile menu -->
+        <a href="#tampilan">Screenshot Aplikasi</a>
+        <a href="#dashboard-web">Hasil Scan</a>
         <button class="mobile-download-link" onclick="startDownload(this, 'https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk')">
             <i class="fa-brands fa-android"></i> <span>Download APK</span>
         </button>
@@ -387,7 +481,6 @@
                 <div class="versi-info">
                     <h3>Pantau Jam (v4.0)</h3>
                 </div>
-                <!-- Tombol download hero -->
                 <button class="download-btn-hero" onclick="startDownload(this, 'https://github.com/fajruldan/jamtu/releases/download/v.4.1/pantau_jam_v4.apk')">
                     <i class="fa-brands fa-android"></i> <b>Download APK</b>
                 </button>
@@ -409,6 +502,16 @@
         </div>
     </section>
 
+    <section id="dashboard-web">
+        <h2 class="reveal">Hasil Scan</h2>
+        <div class="web-dashboard-wrap reveal">
+            <img src="/img/live.webp" alt="Dashboard Web Real-Time" class="web-dashboard-img" id="dashboardImg">
+            <a href="https://pantaujam-live.vercel.app/" target="_blank" rel="noopener" class="web-open-btn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Pantau Jam Live
+            </a>
+        </div>
+    </section>
+
     <footer>
         <p style="font-size: 0.9rem; text-align: center;">&copy; <script>document.write(new Date().getFullYear());</script> Staff T.U MA Plus</p>
     </footer>
@@ -418,12 +521,26 @@
         <i class="fa-solid fa-circle-check"></i> Mengunduh APK, periksa notifikasi unduhan ...
     </div>
 
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <img id="lightboxImg" src="" alt="Zoom Dashboard">
+        <span class="lightbox-hint">Klik di mana saja atau tekan Esc untuk menutup</span>
+    </div>
+
     <script>
         // Blokir klik kanan & shortcut dev tools
         document.addEventListener('contextmenu', event => event.preventDefault());
         document.onkeydown = function(e) {
-            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.shiftKey && e.key === "J") || (e.ctrlKey && e.key === "U")) {
-                e.preventDefault(); return false;
+            if (e.key === "Escape") {
+                closeLightbox();
+                return;
+            }
+            // Blokir dev tools hanya saat lightbox TIDAK aktif
+            if (!lightbox.classList.contains('active')) {
+                if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.shiftKey && e.key === "J") || (e.ctrlKey && e.key === "U")) {
+                    e.preventDefault(); return false;
+                }
             }
         }
 
@@ -470,7 +587,7 @@
 
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-        // Fungsi download — trigger via JS, tidak ada href di elemen
+        // Fungsi download
         function startDownload(btn, url) {
             const originalContent = btn.innerHTML;
             const toast = document.getElementById('downloadToast');
@@ -480,7 +597,6 @@
             btn.style.opacity = '0.8';
             toast.classList.add('show');
 
-            // Trigger download setelah 1.5 detik via elemen <a> sementara
             setTimeout(() => {
                 const a = document.createElement('a');
                 a.href = url;
@@ -488,11 +604,9 @@
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
-
                 btn.innerHTML = '<i class="fa-solid fa-check" style="color: #3DDC84;"></i> <b>Diunduh</b>';
             }, 1500);
 
-            // Kembalikan tombol & sembunyikan toast setelah 5 detik
             setTimeout(() => {
                 btn.innerHTML = originalContent;
                 btn.style.pointerEvents = 'auto';
@@ -500,6 +614,34 @@
                 toast.classList.remove('show');
             }, 5000);
         }
+
+        // ── LIGHTBOX ──
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const dashboardImg = document.getElementById('dashboardImg');
+
+        dashboardImg.addEventListener('click', function () {
+            lightboxImg.src = this.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+
+        // Klik overlay ATAU gambar → tutup
+        lightbox.addEventListener('click', function (e) {
+            closeLightbox();
+        });
+
+        lightboxClose.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeLightbox();
+        });
     </script>
 </body>
 </html>
