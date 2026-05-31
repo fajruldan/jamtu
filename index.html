@@ -392,6 +392,7 @@
             align-items: center; justify-content: center; font-size: 1.2rem;
         }
 
+        /* PERBAIKAN TOAST NOTIFICATION */
         #downloadToast {
             position: fixed;
             bottom: -100px;
@@ -404,15 +405,22 @@
             font-weight: 700;
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
             gap: 12px;
             box-shadow: 0 10px 25px rgba(61, 220, 132, 0.4);
             transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 2000;
             pointer-events: none;
-            white-space: nowrap;
+            /* Tambahan agar responsive: */
+            width: max-content;
+            max-width: 90%;
         }
         #downloadToast.show { bottom: 40px; }
-        #downloadToast i { font-size: 1.4rem; }
+        #downloadToast i { 
+            font-size: 1.4rem; 
+            flex-shrink: 0; /* Agar ikon tidak mengecil saat teks jadi dua baris */
+        }
 
         footer {
             padding: 2rem; display: flex; justify-content: center; align-items: center;
@@ -427,12 +435,15 @@
             .premium-card { padding: 1.5rem; }
             .premium-card p.quote-text { font-size: 1rem; }
             .download-btn-hero { padding: 10px 24px; font-size: 1rem; }
+            
+            /* PERBAIKAN TOAST MOBILE */
             #downloadToast {
                 width: 90%;
-                justify-content: center;
-                font-size: 0.95rem;
+                font-size: 0.9rem;
                 padding: 12px 20px;
+                border-radius: 20px; /* Radius dikecilkan agar rapi jika dua baris */
             }
+
             .web-dashboard-img {
                 border-radius: 10px;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -645,3 +656,4 @@
     </script>
 </body>
 </html>
+
